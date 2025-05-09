@@ -1,0 +1,17 @@
+services:
+  opencv:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: opencv_container
+    runtime: nvidia
+    environment:
+      - USER_ID=1000
+      - GROUP_ID=1000
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    volumes:
+      - /home/YourUserID/Data:/data  # Mount the host directory to the container
+    ports:
+      - "XXXX:XXXX"  # Map container port XXXX to host port XXXX
+    tty: true

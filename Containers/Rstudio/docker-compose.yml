@@ -1,0 +1,14 @@
+services:
+  rstudio:
+    image: rocker/verse:4
+    ports:
+      - "XXXX:XXXX"
+    environment:
+      PASSWORD: Password
+      USERID: 1000
+      GROUPID: 1000
+    volumes:
+      - ./.rstudio_config:/home/rstudio/.config/rstudio
+      - ~/workspace:/home/rstudio/workspace
+      - /other_dir:/other_dir
+      - /home/YourUserID/Data:/home/rstudio/Data  # Mount /Data on the container
